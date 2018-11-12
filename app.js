@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express'),
 app = express(),
 port = process.env.PORT || 4000,
@@ -6,7 +7,7 @@ mongoose = require('mongoose');
 bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/test1');
+mongoose.connect(process.env.MONGOURL);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
